@@ -12,6 +12,8 @@ jobs:
           python-version: '3.8.10'
       - name: "Run unittest"
         run: python -m unittest
+      - name: "run coverage"
+        run: python -m coverage run -m unittest tests/unit/test_diffusion2d_functions.py
 
   style_check:
     runs-on: ubuntu-latest
