@@ -17,7 +17,13 @@ jobs:
       - name: "run coverage"
         run: coverage run -m pytest
       - name: "generate report"
-        run: coverage report -m
+        run: coverage report -m >> .coverage
+      - name: keep report
+        uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: .coverage
+          retention-days: 1
   style_check:
     runs-on: ubuntu-latest
     steps:
