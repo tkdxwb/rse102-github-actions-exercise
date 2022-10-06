@@ -10,6 +10,9 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8.10'
+          cache: 'pip' # caching pip dependencies
+      - name: install coverage
+        run: pip install coverage
       - name: "Run unittest"
         run: python -m unittest
       - name: "run coverage"
