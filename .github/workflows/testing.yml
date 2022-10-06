@@ -21,4 +21,4 @@ jobs:
         with:
           python-version: '3.8.10'
       - name: "Run black"
-        run: black .
+        run: python -m black .
