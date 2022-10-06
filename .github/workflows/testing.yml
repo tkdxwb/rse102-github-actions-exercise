@@ -7,19 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
-          python-version: '3.8.10' 
+          python-version: '3.10' 
           cache: 'pip' # caching pip dependencies
       - name: install packages
         run: pip install coverage numpy matplotlib
-      - name: "Run unittest"
-        run: python -m unittest
       - name: "run coverage"
-        run: python -m coverage run -m unittest tests/unit/test_diffusion2d_functions.py
+        run: coverage run -m pytest
       - name: "generate report"
-        run: python -m coverage report
-
+        run: coverage report -m
   style_check:
     runs-on: ubuntu-latest
     steps:
