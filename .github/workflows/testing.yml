@@ -17,7 +17,7 @@ jobs:
       - name: "run coverage"
         run: coverage run -m pytest
       - name: "generate report"
-        run: coverage report -m >> .coverage
+        run: coverage report -m
       - name: keep report
         uses: actions/upload-artifact@v3
         with:
@@ -29,3 +29,27 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: psf/black@stable
+  coverage-report:
+    runs-on: ubuntu-latest
+    needs: test 
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10' 
+      - name: install pip
+        run: python -m ensurepip --upgrade
+      - name: install packages
+        run: pip install coverage
+      - name: download artifact 
+        uses: actions/download-artifact@v3
+        with:
+          name: report
+      - name: run xml
+        run: coverage xml
+      - name: keep xml
+        uses: actions/upload-artifact@v3
+        with:
+          name: coveragexml
+          path: coverage.xml
+          retention-days: 14
