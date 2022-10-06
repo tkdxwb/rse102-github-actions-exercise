@@ -12,5 +12,5 @@ Please follow the instructions in [python_testing_exercise.md](https://github.co
 
 The code used in this exercise is based on [Chapter 7 of the book "Learning Scientific Programming with Python"](https://scipython.com/book/chapter-7-matplotlib/examples/the-two-dimensional-diffusion-equation/).
 
-![example workflow](https://github.com/tkdxwb/rse102-github-actions-exercise/actions/workflows/testing.yml/badge.svg)
+![example workflow](https://github.com/tkdxwb/rse102-github-actions-exercise/actions/workflows/testing.yml/badge.svg?branch=test)
 
