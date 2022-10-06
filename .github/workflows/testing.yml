@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8.10'
@@ -16,9 +16,8 @@ jobs:
   style_check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8.10'
-      - name: "Run black"
-        run: python -m black .
+      - uses: psf/black@stable
