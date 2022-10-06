@@ -1,24 +1,24 @@
-name: tests
+name: Testing workflow
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  style_check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with: 
-          python-version:"3.10"
-      - name: "Run black"
-        run: black .
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with: 
-          python-version:"3.10"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.10'
+      - name: "Run unittest"
+        run: python -m unittest
+
+  style_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.10'
       - name: "Run black"
-        run: python -m unittest tests/unit/test_diffusion2d_functions.py
-  
+        run: black .
