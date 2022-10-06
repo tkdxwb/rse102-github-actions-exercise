@@ -13,7 +13,7 @@ jobs:
       - name: install pip
         run: python -m ensurepip --upgrade
       - name: install packages
-        run: pip install coverage numpy matplotlib
+        run: pip install coverage numpy matplotlib pytest
       - name: "run coverage"
         run: coverage run -m pytest
       - name: "generate report"
