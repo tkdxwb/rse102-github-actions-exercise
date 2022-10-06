@@ -14,10 +14,10 @@ jobs:
         run: pip install coverage numpy matplotlib
       - name: "Run unittest"
         run: python -m unittest
-      - name: "run coverage"
-        run: python -m coverage run -m unittest tests/unit/test_diffusion2d_functions.py
-      - name: "generate report"
-        run: python -m coverage report
+      #- name: "run coverage"
+       # run: python -m coverage run -m unittest tests/unit/test_diffusion2d_functions.py
+      #- name: "generate report"
+        #run: python -m coverage report
 
   style_check:
     runs-on: ubuntu-latest
