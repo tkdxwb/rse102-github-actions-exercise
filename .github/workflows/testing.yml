@@ -1,6 +1,12 @@
 name: tests
-on:["push"]
+
+on:[push]
+
 jobs:
   style_check:
-  uses:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with: python-version:"3.10"
 	
